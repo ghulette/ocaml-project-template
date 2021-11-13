@@ -1,10 +1,18 @@
 opam-version: "1.2"
 name: "myproject"
+version: "0.1.0"
+license: "MIT"
+homepage: "https://github.com/ghulette/ocaml-project-template"
+bug-reports: "https://github.com/ghulette/ocaml-project-template/issues"
+dev-repo: "https://github.com/ghulette/ocaml-project-template.git"
 authors: "Geoff Hulette <geoff@hulette.net>"
-version: "1.0.0"
 maintainer: "Geoff Hulette <geoff@hulette.net>"
-description: "My wonderful project"
+synopsis: "A wonderful project"
+description: """
+My wonderful project is so wonderful.
+"""
 
 depends: [
-  "dune" {build}
+  "dune" {>= "2.8" build}
 ]
+build: ["dune" "build" "-p" name "-j" jobs]
