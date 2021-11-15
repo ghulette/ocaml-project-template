@@ -1,30 +1,70 @@
-# OCaml Project Template
+_Catchy headline_
+==
 
-This is not trying to be all things to all people -- this template is
-intentionally simple and restricted to what I use most. For better or worse,
-you have a lot of choices with OCaml tooling -- opam, dune, etc. These are the
-options I use most.
+_Project description_
 
-## How to use
+How to set up the build environment
+--
 
-First change these things:
+```
+$ opam switch create . --deps-only --with-test
+$ eval $(opam env)
+```
 
-1. Rename myproject.opam...
-2. Rename the directory
-3. `rm -rf .git`
+How to build the project
+--
 
-Now run `opam install .`
+Run `make` to compile the libraries and executables that are
+meant to be installed.
+```
+$ make
+```
 
-## Run, test, debug cycle
+How to run tests
+--
 
-1. Change the code
-2. Run `dune test`
-3. When you are happy, promote the tests and run `opam install .`
+```
+$ make test
+```
 
-This template provides both a library and executable target. The idea is that
-you write most of the logic in the library and then the executable just parses
-command line arguments and calls the library functions for the heavy lifting.
+How to use local libraries interactively
+--
 
-## Install the executable
+Use `dune utop DIR` where DIR if the folder contains the `dune`
+file for a library. For instance, our sample library can be
+used as follows:
 
-Can opam even do this? Maybe add a Makefile?
+```
+$ dune utop sub2/lib
+...
+utop # Proj_sub2.A.do_something ();;
+1525373137.245 seconds have elapsed since 1970-01-01T00:00:00.
+- : unit = ()
+```
+
+Installation
+--
+
+The project can be installed with or without opam.
+Without opam, you can run the following which relies directly on
+dune:
+```
+$ make install
+```
+Similarly:
+```
+$ make uninstall
+```
+
+With opam, you can install the current development version of your
+project as a single opam package. It will override the currently
+installed package of the same name, if any:
+```
+$ opam pin add -k path proj .
+```
+For more information on `opam pin`, please consult the
+[opam documentation](https://opam.ocaml.org/doc/Usage.html)
+
+The advantage of the opam-based method is that other opam packages can
+depend on this one, and opam will recompile them automatically as
+necessary.

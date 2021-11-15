@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "YOUR EMAIL ADDRESS"
+authors: ["YOUR NAME"]
+
+homepage: "https://github.com/USERNAME/proj"
+bug-reports: "https://github.com/USERNAME/proj/issues"
+dev-repo: "git+https://github.com/USERNAME/proj.git"
+version: "dev"
+
+license: "MIT"
+
+synopsis: "_Catchy headline_"
+
+description: """
+_Project description_
+"""
+
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+run-test: ["dune" "runtest" "-p" name]
+
+depends: [
+  "ocaml" { >= "4.12.1" }
+  "dune" { >= "2.8" }
+  "ocamlformat" { >= "0.19.0" }
+  "ocamlformat-rpc" { >= "0.19.0" }
+  "alcotest" {with-test}
+]

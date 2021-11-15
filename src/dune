@@ -1,2 +1,5 @@
 (library
- (name myproject))
+ (name proj)
+ (public_name proj)
+ (libraries unix str)
+ (synopsis "This is a short description of the library."))
