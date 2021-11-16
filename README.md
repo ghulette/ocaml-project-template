@@ -1,9 +1,11 @@
 _Catchy headline_
 ==
 
+This template was ~~stolen~~ adapted from Martin Jambon's excellent [Dune starter kit](https://github.com/mjambon/dune-starter).
+
 _Project description_
 
-How to set up the build environment
+How to set up the build environment (using opam 2.1)
 --
 
 ```
