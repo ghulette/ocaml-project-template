@@ -25,7 +25,5 @@ run-test: ["dune" "runtest" "-p" name]
 depends: [
   "ocaml" { >= "4.12.1" }
   "dune" { >= "2.8" }
-  "ocamlformat" { >= "0.19.0" }
-  "ocamlformat-rpc" { >= "0.19.0" }
   "alcotest" {with-test}
 ]
